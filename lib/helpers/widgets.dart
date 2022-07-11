@@ -114,4 +114,3 @@ class Shader extends StatelessWidget {
     );
   }
 }
-

@@ -3,16 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:medplace/helpers/constants.dart';
 import 'package:medplace/helpers/widgets.dart';
-import 'package:medplace/screen/forms/signIn/body.dart';
-import 'package:medplace/screen/forms/signUp/components/signUp.dart';
 import 'package:medplace/screen/forms/signUp/components/form.dart';
 
-class SignUpBody extends StatefulWidget {
+class SignInBody extends StatefulWidget {
   @override
-  State<SignUpBody> createState() => _SignUpBodyState();
+  State<SignInBody> createState() => _SignInBodyState();
 }
 
-class _SignUpBodyState extends State<SignUpBody> {
+class _SignInBodyState extends State<SignInBody> {
   final formKey = GlobalKey<FormState>();
   String email = '';
   String password = '';
@@ -69,9 +67,9 @@ class _SignUpBodyState extends State<SignUpBody> {
                       SizedBox(height: 20),
                       TextFormField(
                         validator: (email) =>
-                            email != null && !EmailValidator.validate(email)
-                                ? 'Enter a valid email'
-                                : null,
+                        email != null && !EmailValidator.validate(email)
+                            ? 'Enter a valid email'
+                            : null,
                         decoration: InputDecoration(
                             label: Text('Email'),
                             hintText: 'email@example.com',
@@ -126,20 +124,9 @@ class _SignUpBodyState extends State<SignUpBody> {
                         },
                       ),
                       SizedBox(
-                        height: 60,
+                        height: 40,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text('Already Signed In?', style: kSign),
-                          TextButton(
-                              onPressed: () => Get.to(() => SignIn()),
-                              child: Text(
-                                'Sign In',
-                                style: TextStyle(fontSize: 15, color: kGrey),
-                              ))
-                        ],
-                      )
+
                     ],
                   ),
                 ))
@@ -149,3 +136,4 @@ class _SignUpBodyState extends State<SignUpBody> {
     );
   }
 }
+
