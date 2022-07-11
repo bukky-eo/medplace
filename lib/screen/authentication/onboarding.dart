@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:medplace/helpers/constants.dart';
 // import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:medplace/helpers/widgets.dart';
-import 'package:medplace/screen/authentication/forms/signUp.dart';
+import 'package:medplace/screen/forms/signUp/components/signUp.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({Key? key}) : super(key: key);
@@ -34,16 +34,17 @@ class _State extends State<OnboardingScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // SingleChildScrollView(
-                //   scrollDirection: Axis.horizontal,
-                //   child: Container(
-                //     width: double.infinity,
-                //     child: Row(
-                //       children: List.generate(
-                //           4, (index) => Image.asset('assets/center.png')),
-                //     ),
-                //   ),
-                // ),
+                Container(
+                  width: double.infinity,
+                  child: SingleChildScrollView(
+                    physics: BouncingScrollPhysics(),
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: List.generate(
+                          4, (index) => Image.asset('assets/center.png')),
+                    ),
+                  ),
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -58,13 +59,13 @@ class _State extends State<OnboardingScreen> {
                   ],
                 ),
                 const SizedBox(
-                  height: 15.0,
+                  height: 10,
                 ),
                 Shader(
                   title: 'Good health',
-                  style: 45,
+                  style: 40,
                 ),
-                SizedBox(height: 15),
+                SizedBox(height: 10),
                 Row(
                   children: [
                     Container(
@@ -82,12 +83,15 @@ class _State extends State<OnboardingScreen> {
                   ],
                 ),
                 SizedBox(
-                  height: 100.0,
+                  height: 30,
                 ),
                 const Text(
-                    'Semper ultrices gravida tellus sed nunc viverra lectus dapibus ut. Facilisis dui in.'),
+                  'Semper ultrices gravida tellus sed nunc viverra lectus dapibus ut. Facilisis dui in.',
+                  style: TextStyle(color: kGradientThree, fontSize: 15),
+                  textAlign: TextAlign.center,
+                ),
                 SizedBox(
-                  height: 20,
+                  height: 40,
                 ),
                 OutlinedBttn(
                     title: 'Get Started', press: () => Get.to(() => SignUp()))

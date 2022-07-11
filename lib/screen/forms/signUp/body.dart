@@ -1,14 +1,10 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-// import 'package:flutter/rendering.dart';
-// import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:medplace/helpers/constants.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-// import 'package:email_validator/email_validator.dart';
 import 'package:medplace/helpers/widgets.dart';
-import 'package:medplace/screen/authentication/forms/signUp.dart';
-import 'package:medplace/screen/authentication/forms/form.dart';
-// import 'signUpBody/SignUpForm.dart';
+import 'package:medplace/screen/forms/signUp/components/signUp.dart';
+import 'package:medplace/screen/forms/signUp/components/form.dart';
 
 class SignUpBody extends StatefulWidget {
   @override
@@ -17,6 +13,8 @@ class SignUpBody extends StatefulWidget {
 
 class _SignUpBodyState extends State<SignUpBody> {
   final formKey = GlobalKey<FormState>();
+  String email = '';
+  String password = '';
   bool obscure = true;
   @override
   Widget build(BuildContext context) {
@@ -67,31 +65,67 @@ class _SignUpBodyState extends State<SignUpBody> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      InputField(
-                        icon: FontAwesomeIcons.bagShopping,
-                        hintTxt: 'email@example.com',
-                        labelTxt: 'Email',
-                        activate: () {},
-                      ),
                       SizedBox(height: 20),
-                      InputField(
-                        icon: obscure ? Icons.visibility : Icons.visibility_off,
-                        hintTxt: '********',
-                        labelTxt: 'Password',
-                        activate: () {
-                          setState() {
-                            obscure = !obscure;
+                      TextFormField(
+                        validator: (email) =>
+                            email != null && !EmailValidator.validate(email)
+                                ? 'Enter a valid email'
+                                : null,
+                        decoration: InputDecoration(
+                            label: Text('Email'),
+                            hintText: 'email@example.com',
+                            suffixIcon: IconButton(
+                              onPressed: () {},
+                              icon: Icon(
+                                Icons.email_outlined,
+                                color: kGradientThree,
+                              ),
+                            )),
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      TextFormField(
+                        validator: (password) {
+                          if (password != null && password.length < 7) {
+                            return 'Enter a minimum of 7 characters';
+                          } else {
+                            return null;
                           }
                         },
+                        obscureText: obscure,
+                        decoration: InputDecoration(
+                            label: Text(
+                              'Password',
+                            ),
+                            hintText: '********',
+                            suffixIcon: IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    obscure = !obscure;
+                                  });
+                                },
+                                icon: Icon(
+                                  obscure
+                                      ? Icons.visibility
+                                      : Icons.visibility_off,
+                                  color: kGradientThree,
+                                ))),
                       ),
                       SizedBox(
                         height: 30,
                       ),
                       OutlinedBttn(
-                          title: 'Next',
-                          press: () => Get.to(() => SignUpForm())),
+                        title: 'Next',
+                        press: () {
+                          final isValidForm = formKey.currentState!.validate();
+                          if (isValidForm) {
+                            Get.to(() => SignUpForm());
+                          }
+                        },
+                      ),
                       SizedBox(
-                        height: 100,
+                        height: 60,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,

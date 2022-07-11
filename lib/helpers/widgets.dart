@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'constants.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -34,21 +35,21 @@ class OutlinedBttn extends StatelessWidget {
 }
 
 class InputField extends StatelessWidget {
-  final Function() activate;
+  // final Function() activate;
   final IconData icon;
   final String labelTxt;
   final String hintTxt;
   // final Function() valid;
   // final String value;
-  final bool obscure;
+  final bool? obscure;
 
   const InputField({
     Key? key,
-    required this.activate,
+    // required this.activate,
     required this.icon,
     required this.hintTxt,
     required this.labelTxt,
-    this.obscure = false,
+    this.obscure = true,
     // this.activate,
     // required this.valid,
   }) : super(key: key);
@@ -56,7 +57,7 @@ class InputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      obscureText: obscure,
+      obscureText: true,
       decoration: InputDecoration(
         labelStyle: TextStyle(color: kGrey),
         labelText: labelTxt,
@@ -65,7 +66,7 @@ class InputField extends StatelessWidget {
           borderSide: BorderSide(color: kGrey),
         ),
         suffixIcon: IconButton(
-          onPressed: activate,
+          onPressed: () {},
           icon: Icon(
             icon,
             color: kGradientThree,
@@ -73,7 +74,7 @@ class InputField extends StatelessWidget {
         ),
         hintText: hintTxt,
         hintStyle: TextStyle(color: kGradientThree),
-        contentPadding: REdgeInsets.all(15.h),
+        contentPadding: EdgeInsets.all(15.h),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide(color: kGradientThree, width: 1),
@@ -113,3 +114,4 @@ class Shader extends StatelessWidget {
     );
   }
 }
+

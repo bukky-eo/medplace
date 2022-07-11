@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:medplace/helpers/constants.dart';
-import 'package:medplace/screen/authentication/forms/signed.dart';
+import 'package:medplace/screen/forms/signUp/components/signed.dart';
 
 class SignUpForm extends StatelessWidget {
   const SignUpForm({Key? key}) : super(key: key);
