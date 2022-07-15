@@ -17,6 +17,8 @@ class MedPlace extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
         designSize: const Size(414, 896),
+        minTextAdapt: true,
+        splitScreenMode: true,
         builder: (BuildContext context, child) => GetMaterialApp(
               debugShowCheckedModeBanner: false,
               theme: theme(),

@@ -18,8 +18,8 @@ InputDecorationTheme inputDecorationTheme() {
     gapPadding: 10,
   );
   return InputDecorationTheme(
-    labelStyle:
-        TextStyle(fontSize: 12.sp, color: kGrey, fontWeight: FontWeight.w600),
+    labelStyle: TextStyle(
+        fontSize: 18.sp, color: kGradientThree, fontWeight: FontWeight.w600),
     contentPadding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 15.h),
     enabledBorder: outlineInputBorder,
     focusedBorder: enabledInputBorder(),

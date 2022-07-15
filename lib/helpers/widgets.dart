@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
+// import 'package:image_picker/image_picker.dart';
 import 'constants.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -101,8 +101,8 @@ class Shader extends StatelessWidget {
   Widget build(BuildContext context) {
     return ShaderMask(
       blendMode: BlendMode.srcIn,
-      shaderCallback: (rect) => LinearGradient(
-        colors: [kGradientOne, kGradientTwo],
+      shaderCallback: (rect) => const LinearGradient(
+        colors: [kGradientOne, kGradientTwo, kGradientThree],
         begin: Alignment.topLeft,
         end: Alignment.bottomRight,
       ).createShader(rect),
@@ -110,6 +110,24 @@ class Shader extends StatelessWidget {
         title,
         textAlign: TextAlign.start,
         style: TextStyle(fontSize: style, fontWeight: FontWeight.bold),
+      ),
+    );
+  }
+}
+
+class BarIndicator extends StatelessWidget {
+  const BarIndicator({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(10),
+      child: Container(
+        width: 40,
+        height: 2,
+        decoration: BoxDecoration(
+          color: Colors.white,
+        ),
       ),
     );
   }

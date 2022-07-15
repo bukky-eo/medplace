@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:medplace/helpers/constants.dart';
-// import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:medplace/helpers/widgets.dart';
 import 'package:medplace/screen/forms/signUp/components/signUp.dart';
 
@@ -63,7 +63,7 @@ class _State extends State<OnboardingScreen> {
                 ),
                 Shader(
                   title: 'Good health',
-                  style: 40,
+                  style: 40.sp,
                 ),
                 SizedBox(height: 10),
                 Row(
@@ -78,7 +78,7 @@ class _State extends State<OnboardingScreen> {
                     ),
                     Shader(
                       title: 'at your fingerprints',
-                      style: 25,
+                      style: 25.sp,
                     )
                   ],
                 ),

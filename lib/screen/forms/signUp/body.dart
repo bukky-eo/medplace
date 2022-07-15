@@ -23,8 +23,6 @@ class _SignUpBodyState extends State<SignUpBody> {
       physics: BouncingScrollPhysics(),
       scrollDirection: Axis.vertical,
       child: Container(
-        // height: double.infinity,
-        // width: double.infinity,
         decoration: BoxDecoration(
           image: DecorationImage(
             // opacity: 20,

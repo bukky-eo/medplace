@@ -12,6 +12,12 @@ const kGreyText = TextStyle(color: Color(0xff89A3A9));
 const kGrey = Color(0xff89A3A9);
 const kSign = TextStyle(fontSize: 15, color: kGradientOne);
 const kInner = Color(0xffF0F7F9);
+const textTheme = Color(0xff2C9CB5);
+const containerTheme = Color(0xffD7E0E2);
+const backgroundTheme = Color(0xffE9EFF1);
+const textHeader = TextStyle(
+    color: Color(0xff2C9CB5), fontSize: 20, fontWeight: FontWeight.bold);
+const textFeildDecor = OutlineInputBorder();
 final textFieldDecoration = InputDecoration(
   labelStyle: const TextStyle(
     color: kGrey,
